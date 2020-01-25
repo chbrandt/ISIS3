@@ -70,14 +70,14 @@ This installation guide is for ISIS3 users interested in installing ISIS3 (3.6.0
 
         conda install -c usgs-astrogeology isis3
 
-    If you would like to work with our latest ISIS version 4 Release Candidate instead run:
-
-        conda install -c usgs-astrogeology -c usgs-astrogeology/label/RC isis
-
-    If you would like to work with our latest ISIS version 3 Release Candidate, rather than updating
+    > If you would like to work with our latest ISIS *version 3* **Release Candidate**, rather than updating
     to ISIS 4, instead run:
+    >
+    >     conda install -c usgs-astrogeology -c usgs-astrogeology/label/RC isis=3.10.0
 
-	    conda install -c usgs-astrogeology -c usgs-astrogeology/label/RC isis=3.10.0
+    > If you would like to work with our latest ISIS **version 4** *Release Candidate* instead run:
+    >
+    >     conda install -c usgs-astrogeology -c usgs-astrogeology/label/RC isis
 
 
 7.  Finally, setup the environment variables:
@@ -173,7 +173,7 @@ To download all ISIS3 data, enter the following commands in the location where y
 
 ### Partial Download of ISIS3 Base Data (Required)
 
-The base data area is separate from the source code. This data area is crucial to ISIS3 and must be downloaded. To do that run the following commands:
+The base data area is separate from the source code. This data area is crucial to ISIS3 and **must be downloaded**. To do that run the following commands:
 
     cd $ISIS3DATA
     rsync -azv --delete --partial isisdist.astrogeology.usgs.gov::isis3data/data/base .

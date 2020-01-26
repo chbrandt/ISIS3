@@ -184,18 +184,23 @@ There are many missions supported by ISIS. If you are only working with a few mi
 
 ### ISIS SPICE Web Service
 
-ISIS can now use a service to retrieve the SPICE data for all instruments ISIS supports via the internet. To use this service instead of your local SPICE data, click the WEB check box in the spiceinit program GUI or type spiceinit web=yes at the command line. Using the ISIS SPICE Web Service will significantly reduce the size of the downloads from our data area. If you want to use this new service, without having to download all the SPICE data, add the following argument to the mission-specific rsync command:
+ISIS can now use a service to retrieve the SPICE data for all instruments ISIS supports via the internet. Using the ISIS SPICE Web Service will significantly reduce the size of the downloads from our data area.
 
-    --exclude='kernels'
+* To use this service instead of your local SPICE data:
+  * click the `WEB` check box in the spiceinit program GUI;
+  * or type `spiceinit web=yes` at the command line.  
+* And while _rsync_'ing the mission-specific data, if you want to use this new service without having to download all the SPICE data, add the following argument to the `rsync` command:
 
-For example:
+      --exclude='kernels'
 
-<pre>
-cd $ISIS3DATA
-rsync -azv <b>--exclude='kernels'</b> --delete --partial isisdist.astrogeology.usgs.gov::isis3data/data/cassini .
-</pre>
+  For example:
 
-**WARNING:** Some instruments require mission data to be present for radiometric calibration, which is not supported by the SPICE Web Server, and some programs that are designed to run an image from ingestion through the mapping phase do not have an option to use the SPICE Web Service. For information specific to an instrument, see the documentation for radiometric calibration programs.
+  <pre>
+  cd $ISIS3DATA
+  rsync -azv <b>--exclude='kernels'</b> --delete --partial isisdist.astrogeology.usgs.gov::isis3data/data/cassini .
+  </pre>
+
+**WARNING:** _Some instruments require mission data to be present for radiometric calibration, which is not supported by the SPICE Web Server, and some programs that are designed to run an image from ingestion through the mapping phase do not have an option to use the SPICE Web Service. For information specific to an instrument, **see the documentation for radiometric calibration programs**_.
 
 ### Mission Specific Data Downloads
 
